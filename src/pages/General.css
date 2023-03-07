@@ -1,0 +1,42 @@
+*{
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+
+.avatar-menu{
+    padding: 5px;
+    float: left;
+}
+
+.title-h1{
+    margin-top: 0;
+    color: var(--ion-color-primary);
+    font-weight: 600;
+}
+
+.card-remember{
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+
+.card-remember h6{
+    color: var(--ion-color-primary);
+    font-weight: 600;
+
+}
+
+.col-card-remember{
+    
+}
+
+.button-add-remember{
+    text-transform: none;
+    font-weight: 600;
+    display: flex;
+}
+
+.button-add-remember div{
+    margin-left: 10px;
+}
