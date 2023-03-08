@@ -73,26 +73,30 @@ const HomePage: React.FC = () => {
     
     return (
     <IonPage>
-    <IonHeader>
-    <IonToolbar>
-    <IonTitle>Lembretes</IonTitle>
-    </IonToolbar>
-    </IonHeader>
-    <IonContent fullscreen>
-    <IonButton expand="block" onClick={() => setModalIsOpen(true)}>Adicionar novo lembrete</IonButton>
-    <IonList>
-    {reminders.map(reminder => (
-    <IonItem key={reminder.id}>
-    <IonLabel>
-    <h2>{reminder.title}</h2>
-    <p>{reminder.date}</p>
-    </IonLabel>
-    <IonButton color="danger" onClick={() => handleDeleteReminder(reminder.id)}>Excluir</IonButton>
-    </IonItem>
-    ))}
-    </IonList>
-    <AddReminderModal isOpen={modalIsOpen} onSave={handleSaveReminder} onClose={() => setModalIsOpen(false)} />
-    </IonContent>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Lembretes</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+    
+      <IonContent fullscreen>
+        <IonButton expand="block" onClick={() => setModalIsOpen(true)}>Adicionar novo lembrete</IonButton>
+      
+        <IonList>
+          {reminders.map(reminder => (
+            <IonItem key={reminder.id}>
+              <IonLabel>
+                <h2>{reminder.title}</h2>
+                <p>{reminder.date}</p>
+              </IonLabel>
+      
+              <IonButton color="danger" onClick={() => handleDeleteReminder(reminder.id)}>Excluir</IonButton>
+            </IonItem>
+          ))}
+        </IonList>
+
+        <AddReminderModal isOpen={modalIsOpen} onSave={handleSaveReminder} onClose={() => setModalIsOpen(false)} />
+      </IonContent>
     </IonPage>
     );
     };
