@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
-import { IonButton, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonLabel, IonModal, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonContent, IonDatetime, IonHeader, IonInput, IonItem, IonLabel, IonModal, IonTitle, IonToolbar, IonCheckbox } from '@ionic/react';
 
 interface Props {
   isOpen: boolean;
-  onSave: (title: string, date: string) => void;
+  onSave: (title: string, date: string, showNotification: boolean) => void;
   onClose: () => void;
 }
 
 const AddReminderModal: React.FC<Props> = ({ isOpen, onSave, onClose }) => {
   const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
+  const [showNotificationForm, setShowNotificationForm] = useState(false);
 
   const handleSave = () => {
-    onSave(title, date);
+    onSave(title, date, showNotificationForm);
     setTitle('');
     setDate('');
+    setShowNotificationForm(false);
   };
 
   return (
@@ -33,6 +35,12 @@ const AddReminderModal: React.FC<Props> = ({ isOpen, onSave, onClose }) => {
             <IonLabel position="floating">Data e hora</IonLabel>  
             <IonDatetime value={date} onIonChange={(e) => setDate(String(e.detail.value))} />
         </IonItem>
+        {showNotificationForm && (
+          <IonItem>
+            <IonLabel>Enviar notificação</IonLabel>
+            <IonCheckbox slot="start" checked={showNotificationForm} onIonChange={() => setShowNotificationForm(!showNotificationForm)}></IonCheckbox>
+          </IonItem>
+        )}
         <IonButton expand="block" onClick={handleSave}>Salvar</IonButton>
       </IonContent>
     </IonModal>

@@ -3,10 +3,16 @@
     box-sizing: border-box;
 }
 
+:root{
+    --border-radius-50 : "50%";
+}
+
+
 
 .avatar-menu{
     padding: 5px;
     float: left;
+    border-radius:
 }
 
 .title-h1{

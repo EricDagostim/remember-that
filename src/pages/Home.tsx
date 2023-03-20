@@ -45,7 +45,8 @@ const HomePage: React.FC = () => {
     if (Notification.permission === 'granted') {
     const options = {
     body: 'Este lembrete expirou!',
-    icon: '/assets/icon/favicon.png'
+    icon: '/assets/icon/favicon.png',
+    sound: '/assets/audios/audioNotification.wav'
     };
     new Notification(title, options);
     }
